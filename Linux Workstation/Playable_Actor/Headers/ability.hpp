@@ -5,15 +5,16 @@
 
 namespace LINUX 
 {
-    class AbilityBase
+    //Ability writing and reading is to be done in lua, fed back into C++ using their respective handlers
+    class AbilityHandler
     {
     public:
         std::string displayName = "Empty_Ability";
-        std::map<int, EffectBase> abilityEffects;
+        std::map<int, EffectHandler> abilityEffects;
     };
 
     //Used to apply effects/damage to a character via ability classes
-    class EffectBase
+    class EffectHandler
     {
     public:
         DAMAGETYPE effectType;
@@ -22,7 +23,7 @@ namespace LINUX
 
     };
 
-    class DamageEffect : EffectBase 
+    class DamageEffect : EffectHandler 
     {
     public:
         void CallEffect() override;
@@ -32,7 +33,7 @@ namespace LINUX
         double duration;                       //Duration of 0 will mean it only effects a single tick
     };
 
-    class StatusEffect : EffectBase
+    class StatusEffect : EffectHandler
     {
     public:
         void CallEffect() override;

@@ -8,7 +8,7 @@ namespace LINUX
     {
     public:
         int numberOfAbilities;
-        std::map<int, AbilityBase> Slot;                    //utilize map to avoid duplicates of keys
+        std::map<int, AbilityHandler> Slot;                    //utilize map to avoid duplicates of keys
     protected:
     };
 
