@@ -1,7 +1,7 @@
 #ifndef ABILITY_H
 #define ABILITY_H
 #include "actorDependencies.hpp"
-#include "playable_actor.hpp"
+#include "playableActor.hpp"
 
 namespace LINUX 
 {
