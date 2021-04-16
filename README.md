@@ -1,6 +1,6 @@
 # MOBASDAT
 Currently the project is divided up into 2 workstations, a LINUX and WINDOWS based one.
-For the foreseeable future all LINUX .hpp and .cpp files should function under a WINDOWS environment vice versa.
+For the foreseeable future all LINUX .hpp and .cpp files should function under a WINDOWS environment.
 Essentially LINUX namespace will not use Windows based API/Libraries.
 
 File Ruling::
