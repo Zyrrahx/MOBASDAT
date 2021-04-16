@@ -9,3 +9,8 @@ With this in mind, please use .hpp for .h C++ headers and .h for C headers.
 Ensure that .hpp/.h files are seperated into the folder Headers, and .cpp files are placed in the folder CppFiles.
 If you are going to make a massive change to the code structure, or add new dependencies please make a new branch,
 or at least maintain version control.
+
+Currently we are working on the Playable Actor, this includes but is not limited to creating functions and classes
+to create a playable character in the game, this includes Abilities, Stats, the ability to read from files to
+create these stats/abilities and utilize scripts to easily modify external resources to create characters without
+having to program each individually inside the Solution/C++ workstation.
