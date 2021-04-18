@@ -3,7 +3,7 @@
 // place any constants here to keep track of size of arrays that change with an increase in elements/etc
 #define NSTATS (int)(CharacterStats::NUMBER_OF_ELEMENTS)                //Used to keep track of the number of stats units have
 #define NDAMAGET (int)(DamageType::NUMBER_OF_ELEMENTS)                  //Used to keep track of how many damage types are in the game
-#define NSTATUSES (int)(StatusType::CURRENT_NUMBER_OF_STATUS_EFFECTS)   //Used to keep track of how many status types are in the game
+#define NSTATUSES (int)(StatusType::NUMBER_OF_ELEMENTS)                 //Used to keep track of how many status types are in the game
 // place all dependencies and inclusions of libraries in this file
 #include <string>
 #include <iostream>
@@ -82,7 +82,7 @@ namespace LINUX
         //Fourth Byte
 
         //Utility for StatusType Functions
-        CURRENT_NUMBER_OF_STATUS_EFFECTS = 16
+        NUMBER_OF_ELEMENTS = 16
     };
 
     class StatHandler 
