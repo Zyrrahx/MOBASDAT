@@ -59,7 +59,7 @@ namespace LINUX
 
     struct Status
     {
-        STATUSTYPE status;
+        StatusType status;
     };
 }
 
