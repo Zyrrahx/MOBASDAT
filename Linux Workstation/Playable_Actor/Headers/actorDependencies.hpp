@@ -20,10 +20,10 @@ namespace LINUX
         NONE = 1 << 0,                                              // Used for pure status, used to avoid damage calculations
         PHYSICAL = 1 << 1,
         MAGICAL = 1 << 2,
-        TRUE = 1 << 3,
+        PURE = 1 << 3,
         PSUEDO_PHYSICAL = 1 << 4,
         PSUEDO_MAGICAL = 1 << 5,
-        PSUEDO_TRUE = 1 << 6,
+        PSUEDO_PURE = 1 << 6,
         RESTORATION = 1 << 7,
         THROW_ALL = 1 << 15,                                        // Turn on all bitflags, useless for calculations, purely for testing
         NUMBER_OF_ELEMENTS = 9
