@@ -31,9 +31,9 @@ namespace LINUX
     public:
         void CallEffect() override;
     protected:
-        int CalculateEffect(DamageType _damageType, Character* _caster, Character* _target) 
+        int CalculateEffect(DamageType _damageType, Character* _target) 
         {
-
+            
         };
         Damage damage;                          //Damage dealt each tick / second
         double duration;                        //Duration of 0 will mean it only effects a single tick
