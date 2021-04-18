@@ -9,8 +9,11 @@ namespace LINUX
     class AbilityHandler
     {
     public:
-        std::string displayName = "Empty_Ability";
-        std::map<int, EffectHandler> abilityEffects;
+        std::string displayName = "Empty_Ability";                          //Display name of the ability
+        void virtual Execute(int from, int to);                             //Run through the abilityEffects with a range, from and to, ex index 2 to 7 etc...
+        void virtual Execute();                                             //Run through the abilityEffects and apply them one by one                  
+    protected:
+        std::map<int, EffectHandler> abilityEffects;                        //Each effect that the ability applies, the index is the order in which they occur
     };
 
     //Used to apply effects/damage to a character via ability classes
@@ -28,9 +31,12 @@ namespace LINUX
     public:
         void CallEffect() override;
     protected:
-        int CalculateEffect(DamageType _damageType, Character* _caster, Character* _target);
-        Damage applicableEffect;
-        double duration;                       //Duration of 0 will mean it only effects a single tick
+        int CalculateEffect(DamageType _damageType, Character* _caster, Character* _target) 
+        {
+
+        };
+        Damage damage;                          //Damage dealt each tick / second
+        double duration;                        //Duration of 0 will mean it only effects a single tick
     };
 
     class StatusEffect : EffectHandler
@@ -48,6 +54,7 @@ namespace LINUX
     {
         double amount;
         double variance;
+        DamageType damageElement;
     };
 
     struct Status
