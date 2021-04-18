@@ -8,9 +8,9 @@ namespace LINUX {
     class Character 
     {
     public:
-        std::string DisplayName = "Empty_Character";
+        std::string displayName = "Empty_Character";
     protected:
-        AbilityList Abilities;
+        AbilityList abilities;
     };
 
 
