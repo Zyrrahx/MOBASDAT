@@ -17,7 +17,7 @@ namespace LINUX
     class EffectHandler
     {
     public:
-        DAMAGETYPE effectType;
+        DamageType effectType;
         virtual void CallEffect();
     protected:
 
@@ -28,7 +28,7 @@ namespace LINUX
     public:
         void CallEffect() override;
     protected:
-        int CalculateEffect(DAMAGETYPE _damageType, Character* _caster, Character* _target);
+        int CalculateEffect(DamageType _damageType, Character* _caster, Character* _target);
         Damage applicableEffect;
         double duration;                       //Duration of 0 will mean it only effects a single tick
     };
