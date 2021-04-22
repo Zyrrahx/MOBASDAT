@@ -8,12 +8,15 @@ namespace LINUX {
         Item items[6];
         Stats stats;
     protected:
+
     };
 
     class Item {
     public:
         std::string displayName;
         Stats stats;
+    protected:
+        
     };
 }
 

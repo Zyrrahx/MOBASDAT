@@ -1,5 +1,5 @@
-#ifndef ACTORDEPENDENCIES_H
-#define ACTORDEPENDENCIES_H
+#ifndef ACTORDEPENDENCIES_HPP
+#define ACTORDEPENDENCIES_HPP
 // place any constants here to keep track of size of arrays that change with an increase in elements/etc
 #define NSTATS (int)(CharacterStats::NUMBER_OF_ELEMENTS)                //Used to keep track of the number of stats units have
 #define NDAMAGET (int)(DamageType::NUMBER_OF_ELEMENTS)                  //Used to keep track of how many damage types are in the game
@@ -9,7 +9,10 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <vector>
 #include "LuaHeaders/lua.hpp"
+#include "vector2d.hpp"
+#include "vector3d.hpp"
 
 namespace LINUX 
 {
@@ -85,6 +88,7 @@ namespace LINUX
         NUMBER_OF_ELEMENTS = 16
     };
 
+
     class StatHandler 
     {
     public:
@@ -97,15 +101,56 @@ namespace LINUX
     class Stats
     {
     public:
-    StatHandler slots[NSTATS];
-
-
+    StatHandler * slots;
+    Stats(StatHandler test[NSTATS]):slots(test){};
+        Stats operator+(const Stats& other);
+        Stats operator-(const Stats& other);
+        Stats operator/(const Stats& other);
+        Stats operator*(const Stats& other);
     protected:
+    };
+    //Custom operators to add the Stats class together
+    Stats Stats::operator+(const Stats& other) 
+    {
+    StatHandler placeHolderSlots[NSTATS];
+        for(int i = 0; i < NSTATS; i++) {
+            placeHolderSlots[i].amount = slots[i].amount + other.slots[i].amount;
+        }
+        return Stats(placeHolderSlots);
+    };
+    Stats Stats::operator-(const Stats& other)
+    {
+    StatHandler placeHolderSlots[NSTATS];
+        for(int i = 0; i < NSTATS; i++) {
+            placeHolderSlots[i].amount = slots[i].amount - other.slots[i].amount;
+        }
+        return Stats(placeHolderSlots);
+    };
+    Stats Stats::operator*(const Stats& other)
+    {
+    StatHandler placeHolderSlots[NSTATS];
+        for(int i = 0; i < NSTATS; i++) {
+            placeHolderSlots[i].amount = slots[i].amount * other.slots[i].amount;
+        }
+        return Stats(placeHolderSlots);
+    };
+    Stats Stats::operator/(const Stats& other)
+    {
+    StatHandler placeHolderSlots[NSTATS];
+        for(int i = 0; i < NSTATS; i++) {
+            placeHolderSlots[i].amount = slots[i].amount / other.slots[i].amount;
+        }
+        return Stats(placeHolderSlots);
+    };
 
+
+    class Passive
+    {
 
 
 
     };
+
 }
 
 
