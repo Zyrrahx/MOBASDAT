@@ -11,8 +11,10 @@ namespace LINUX {
         std::string displayName = "Empty_Character";
     protected:
         AbilityList abilities;
+    private:
+        void FetchActorFile();
     };
-
+    
 
 
 
