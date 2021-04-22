@@ -9,12 +9,15 @@ namespace LINUX {
     {
     public:
         std::string displayName = "Empty_Character";
+        Stats currentStats;
     protected:
         AbilityList abilities;
+        Stats baseStats;
+        
     private:
         void FetchActorFile();
     };
-    
+
 
 
 
