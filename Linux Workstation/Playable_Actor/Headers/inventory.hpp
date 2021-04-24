@@ -1,13 +1,15 @@
 #ifndef INVENTORY_HPP
 #define INVENTORY_HPP
-#include "actorDependencies.hpp"
+#include "abilityList.hpp"
 
 namespace LINUX {
     class Inventory {
     public:
         Item items[6];
-        Stats stats;
+        Stats bonusStats;
     protected:
+        void addItemStats();
+        void addItemStats(CharacterStats singleStat);
 
     };
 
@@ -16,10 +18,10 @@ namespace LINUX {
         std::string displayName;
         Stats stats;
     protected:
-        
+        std::map<int, Passive> passives;
     };
 }
-
+    //Acts as the database for buyable items
 namespace ItemPool {
 
 

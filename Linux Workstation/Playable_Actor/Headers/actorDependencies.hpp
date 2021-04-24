@@ -93,6 +93,7 @@ namespace LINUX
     {
     public:
     double amount;
+    CharacterStats statType;
     std::string displayName;
     virtual void fetchStat();
     protected:
@@ -143,18 +144,69 @@ namespace LINUX
         return Stats(placeHolderSlots);
     };
 
+    class PassiveHandler
+    {
 
-    class Passive
+
+
+
+    };
+
+    class Passive : PassiveHandler
     {
 
 
 
     };
 
+    //Used to apply effects/damage to a character via ability classes
+    class EffectHandler
+    {
+    public:
+        DamageType effectType;
+        virtual void CallEffect();
+    protected:
+
+    };
+
+    class DamageEffect : EffectHandler 
+    {
+    public:
+        void CallEffect() override;
+    protected:
+        int CalculateEffect(DamageType _damageType) 
+        {
+            
+        };
+        Damage damage;                          //Damage dealt each tick / second
+        double duration;                        //Duration of 0 will mean it only effects a single tick
+    };
+
+    class StatusEffect : EffectHandler
+    {
+    public:
+        void CallEffect() override;
+
+    protected:
+        void CalculateEffect();
+        Status applicableEffect;
+        double duration;                        //Duration of 0 will mean it only effects a single tick
+    };
+
+    struct Damage 
+    {
+        double base;
+        double variance;
+        double high, low;
+        DamageType damageElement;
+
+        int calculated();
+    };
+
+    struct Status
+    {
+        StatusType status;
+    };
+
 }
-
-
-
-
-
 #endif

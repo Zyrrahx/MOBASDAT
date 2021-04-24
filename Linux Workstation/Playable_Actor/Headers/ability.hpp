@@ -16,52 +16,6 @@ namespace LINUX
     protected:
         std::map<int, EffectHandler> abilityEffects;                        //Each effect that the ability applies, the index is the order in which they occur
     };
-
-    //Used to apply effects/damage to a character via ability classes
-    class EffectHandler
-    {
-    public:
-        DamageType effectType;
-        virtual void CallEffect();
-    protected:
-
-    };
-
-    class DamageEffect : EffectHandler 
-    {
-    public:
-        void CallEffect() override;
-    protected:
-        int CalculateEffect(DamageType _damageType, Character* _target) 
-        {
-            
-        };
-        Damage damage;                          //Damage dealt each tick / second
-        double duration;                        //Duration of 0 will mean it only effects a single tick
-    };
-
-    class StatusEffect : EffectHandler
-    {
-    public:
-        void CallEffect() override;
-
-    protected:
-        void CalculateEffect();
-        Status applicableEffect;
-        double duration;                        //Duration of 0 will mean it only effects a single tick
-    };
-
-    struct Damage 
-    {
-        double amount;
-        double variance;
-        DamageType damageElement;
-    };
-
-    struct Status
-    {
-        StatusType status;
-    };
 }
 
 

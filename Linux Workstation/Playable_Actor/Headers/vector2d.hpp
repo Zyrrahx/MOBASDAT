@@ -11,7 +11,7 @@ template<class T>
         T x;
         T y;
 
-        Vector2d(): x(t(0)), y(T(0)) {}
+        Vector2d(): x(T(0)), y(T(0)) {}
         Vector2d(const& T vx, const& T vy): x(vx), x(vy) {}
 
         Vector2d& operator+=(const Vector2d& v) { x += v.x; y += v.y; return *this;}
