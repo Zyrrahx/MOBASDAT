@@ -1,11 +1,12 @@
 #ifndef INVENTORY_HPP
 #define INVENTORY_HPP
+#define NINVENTORYSLOTS 6
 #include "abilityList.hpp"
 
 namespace LINUX {
     class Inventory {
     public:
-        Item items[6];
+        Item items[NINVENTORYSLOTS];
         Stats bonusStats;
     protected:
         void addItemStats();

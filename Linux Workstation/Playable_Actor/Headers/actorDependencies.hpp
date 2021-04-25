@@ -10,7 +10,7 @@
 #include <list>
 #include <map>
 #include <vector>
-#include "LuaHeaders/lua.hpp"
+#include "lua.hpp"
 #include "vector2d.hpp"
 #include "vector3d.hpp"
 
@@ -30,7 +30,7 @@ namespace LINUX
         PSUEDO_PURE = 1 << 6,
         RESTORATION = 1 << 7,
         THROW_ALL = 1 << 15,                                        // Turn on all bitflags, useless for calculations, purely for testing
-        NUMBER_OF_ELEMENTS = 9
+        NUMBER_OF_ELEMENTS = 8
     };
 
     // This is a flagged enum
@@ -50,10 +50,28 @@ namespace LINUX
         RSLV = 1 << 8,                                                  // Resolve / Status Resistance
         APRC = 1 << 9,                                                  // Armor Pierce / Ignore Physical Armor
         MPRC = 1 << 10,                                                 // Magical Pierce / Ignore Magical Defense|Magic Resist
+        MHP = 1 << 11,                                                  // Maximum Health Points
+        MMP = 1 << 12,                                                  // Maximum Mana Points
         THROW_ALL = 1 << 15,                                            // Turn on all bitflags, useless for calculations, purely for testing
-        NUMBER_OF_ELEMENTS = 12
+        NUMBER_OF_ELEMENTS = 13
     };
-
+    std::map<CharacterStats, std::string> characterStatsMap;
+    characterStatsMap[UNIQUE] = "unique";
+    characterStatsMap[PATK] = "physical_Attack";
+    characterStatsMap[PDEF] = "physical_Defense";
+    characterStatsMap[MDEF] = "magic_Resist";
+    characterStatsMap[AAMP] = "ability_Amplification";
+    characterStatsMap[SPED] = "movement_Speed";
+    characterStatsMap[CRTC] = "critical_Chance";
+    characterStatsMap[CRTA] = "critical_Amplification";
+    characterStatsMap[RSLV] = "status_Resistance";
+    characterStatsMap[APRC] = "physical_Armor_Bypass";
+    characterStatsMap[MPRC] = "magical_Armor_Bypass";
+    characterStatsMap[MHP] = "HP";
+    characterStatsMap[MMP] = "MP";
+    characterStatsMap[THROW_ALL] = "typeNull";
+    characterStatsMap[NUMBER_OF_ELEMENTS] = "typeNull";
+    
     // This is a flagged enum
     // Enum is set to only be 32 bit size, FFFF has all flags open
     // Any new Status types are to be added inside this enum class
@@ -109,7 +127,11 @@ namespace LINUX
         Stats operator/(const Stats& other);
         Stats operator*(const Stats& other);
     protected:
+        void GetStats();
+        void GetStats(CharacterStats x);
+        void GetStats(CharacterStats x[]);
     };
+
     //Custom operators to add the Stats class together
     Stats Stats::operator+(const Stats& other) 
     {

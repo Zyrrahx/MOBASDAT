@@ -11,9 +11,22 @@ namespace LINUX {
         std::string displayName = "Empty_Character";
         Stats currentStats;
     protected:
+        lua_State* L;
+        std::string characterArchivePath;
         AbilityList abilities;
         Stats baseStats;
+        Stats growthRates;
         Inventory inventory;
+
+        //Read functions utilize Lua functionality to fetch the data
+        //Use of lua_state is required
+        void ReadCharacterFile();
+        void ReadCharacterFile(std::string toFetch);
+        void ReadCharacterFile(std::string toFetch[]);
+
+        void ReadAbility();
+        void ReadAbility(int x);
+
         
     private:
         void FetchActorFile();
