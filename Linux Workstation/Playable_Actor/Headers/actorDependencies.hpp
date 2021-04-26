@@ -8,6 +8,7 @@
 #include <string>
 #include <iostream>
 #include <list>
+#include <random>
 #include <map>
 #include <vector>
 #include "lua.hpp"
@@ -106,6 +107,16 @@ namespace LINUX
         NUMBER_OF_ELEMENTS = 16
     };
 
+    class RandomGenerator
+    {
+        public:
+        int Fetch();
+        int Fetch(int min, int max);
+        double Fetch(double min, double max);
+        RandomGenerator();
+        private:
+        std::default_random_engine generator;
+    };
 
     class StatHandler 
     {
@@ -204,7 +215,7 @@ namespace LINUX
         {
             
         };
-        Damage damage;                          //Damage dealt each tick / second
+        DamagePotential damage;                 //Damage dealt each tick / second
         double duration;                        //Duration of 0 will mean it only effects a single tick
     };
 
@@ -219,14 +230,13 @@ namespace LINUX
         double duration;                        //Duration of 0 will mean it only effects a single tick
     };
 
-    struct Damage 
+    struct DamagePotential
     {
         double base;
         double variance;
         double high, low;
-        DamageType damageElement;
 
-        int calculated();
+        DamageType damageElement;
     };
 
     struct Status
