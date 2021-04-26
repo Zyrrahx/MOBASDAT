@@ -26,15 +26,10 @@ namespace LINUX {
 
         void ReadAbility();
         void ReadAbility(int x);
-
+        void ReadAbility(int x[]);
         
     private:
         void FetchActorFile();
     };
-
-
-
-
-
 }
 #endif

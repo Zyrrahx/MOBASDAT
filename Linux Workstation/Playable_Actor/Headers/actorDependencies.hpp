@@ -136,7 +136,8 @@ namespace LINUX
     Stats Stats::operator+(const Stats& other) 
     {
     StatHandler placeHolderSlots[NSTATS];
-        for(int i = 0; i < NSTATS; i++) {
+        for(int i = 0; i < NSTATS; i++) 
+        {
             placeHolderSlots[i].amount = slots[i].amount + other.slots[i].amount;
         }
         return Stats(placeHolderSlots);
@@ -144,7 +145,8 @@ namespace LINUX
     Stats Stats::operator-(const Stats& other)
     {
     StatHandler placeHolderSlots[NSTATS];
-        for(int i = 0; i < NSTATS; i++) {
+        for(int i = 0; i < NSTATS; i++) 
+        {
             placeHolderSlots[i].amount = slots[i].amount - other.slots[i].amount;
         }
         return Stats(placeHolderSlots);
@@ -152,7 +154,8 @@ namespace LINUX
     Stats Stats::operator*(const Stats& other)
     {
     StatHandler placeHolderSlots[NSTATS];
-        for(int i = 0; i < NSTATS; i++) {
+        for(int i = 0; i < NSTATS; i++) 
+        {
             placeHolderSlots[i].amount = slots[i].amount * other.slots[i].amount;
         }
         return Stats(placeHolderSlots);
@@ -160,7 +163,8 @@ namespace LINUX
     Stats Stats::operator/(const Stats& other)
     {
     StatHandler placeHolderSlots[NSTATS];
-        for(int i = 0; i < NSTATS; i++) {
+        for(int i = 0; i < NSTATS; i++) 
+        {
             placeHolderSlots[i].amount = slots[i].amount / other.slots[i].amount;
         }
         return Stats(placeHolderSlots);
