@@ -208,32 +208,42 @@ namespace LINUX
 
     class PassiveHandler
     {
+    public:
 
 
+    protected:
+    bool isStackable = false;
 
 
     };
 
     class Passive : PassiveHandler
     {
+    public:
 
+
+    protected:
 
 
     };
 
     class TagHandler
     {
+    public:
 
 
+    protected:
+        bool isStackable = false;
 
 
     };
 
     class Tag : TagHandler
     {
+    public:
 
 
-
+    protected:
 
     };
 
@@ -244,7 +254,7 @@ namespace LINUX
         DamageType effectType;
         virtual void CallEffect();
     protected:
-
+        bool isStackable = false;
     };
 
     class DamageEffect : EffectHandler 
