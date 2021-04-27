@@ -30,9 +30,10 @@ namespace LINUX
         PSUEDO_MAGICAL = 1 << 5,
         PSUEDO_PURE = 1 << 6,
         RESTORATION = 1 << 7,
-        THROW_ALL = 1 << 15,                                        // Turn on all bitflags, useless for calculations, purely for testing
+        THROW_ALL = 0xFFFF,                                        // Turn on all bitflags, useless for calculations, purely for testing
         NUMBER_OF_ELEMENTS = 8
     };
+    std::map<CharacterStats, std::string> damageTypeMap;
 
     // This is a flagged enum
     // Enum is set to only be 16 bit size, FF has all flags open
@@ -53,26 +54,10 @@ namespace LINUX
         MPRC = 1 << 10,                                                 // Magical Pierce / Ignore Magical Defense|Magic Resist
         MHP = 1 << 11,                                                  // Maximum Health Points
         MMP = 1 << 12,                                                  // Maximum Mana Points
-        THROW_ALL = 1 << 15,                                            // Turn on all bitflags, useless for calculations, purely for testing
+        THROW_ALL = 0xFFFF,                                             // Turn on all bitflags, useless for calculations, purely for testing
         NUMBER_OF_ELEMENTS = 13
     };
     std::map<CharacterStats, std::string> characterStatsMap;
-    characterStatsMap[UNIQUE] = "unique";
-    characterStatsMap[PATK] = "physical_Attack";
-    characterStatsMap[PDEF] = "physical_Defense";
-    characterStatsMap[MDEF] = "magic_Resist";
-    characterStatsMap[AAMP] = "ability_Amplification";
-    characterStatsMap[SPED] = "movement_Speed";
-    characterStatsMap[CRTC] = "critical_Chance";
-    characterStatsMap[CRTA] = "critical_Amplification";
-    characterStatsMap[RSLV] = "status_Resistance";
-    characterStatsMap[APRC] = "physical_Armor_Bypass";
-    characterStatsMap[MPRC] = "magical_Armor_Bypass";
-    characterStatsMap[MHP] = "HP";
-    characterStatsMap[MMP] = "MP";
-    characterStatsMap[THROW_ALL] = "typeNull";
-    characterStatsMap[NUMBER_OF_ELEMENTS] = "typeNull";
-    
     // This is a flagged enum
     // Enum is set to only be 32 bit size, FFFF has all flags open
     // Any new Status types are to be added inside this enum class
@@ -106,6 +91,7 @@ namespace LINUX
         //Utility for StatusType Functions
         NUMBER_OF_ELEMENTS = 16
     };
+    std::map<CharacterStats, std::string> statusTypeMap;
 
     class RandomGenerator
     {
