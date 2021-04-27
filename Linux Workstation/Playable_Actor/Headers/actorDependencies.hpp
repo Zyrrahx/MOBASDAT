@@ -1,10 +1,11 @@
 #ifndef ACTORDEPENDENCIES_HPP
 #define ACTORDEPENDENCIES_HPP
 // place any constants here to keep track of size of arrays that change with an increase in elements/etc
+// use naming convention N(What is being Tracked) for constants that are based on enums or other potentially change in the future types
 #define NSTATS (int)(CharacterStats::NUMBER_OF_ELEMENTS)                //Used to keep track of the number of stats units have
-#define NDAMAGET (int)(DamageType::NUMBER_OF_ELEMENTS)                  //Used to keep track of how many damage types are in the game
+#define NDAMAGETYPE (int)(DamageType::NUMBER_OF_ELEMENTS)               //Used to keep track of how many damage types are in the game
 #define NSTATUSES (int)(StatusType::NUMBER_OF_ELEMENTS)                 //Used to keep track of how many status types are in the game
-// place all dependencies and inclusions of libraries in this file
+// place all dependencies and inclusions of libraries in this file, use discretion
 #include <string>
 #include <iostream>
 #include <list>
@@ -15,8 +16,35 @@
 #include "vector2d.hpp"
 #include "vector3d.hpp"
 
+/**************************************************************************************************************************************************
+                This file has been simplified and broken up with large comments for ease of access due to the size of it
+                Please attempt to follow suit with any edits or additions to the file to maintain integrity and ease of access
+
+                Anything with className of xxxxxHandler is designed to read from Lua and create a C++ object for use in code
+                Children classes of Handlers can perform unique functions based on what type of data they are fed.
+                If a new child class is created from a handler the necessary read function in the .cpp file of actorDependencies.hpp
+                must be edited to allow this new child to gain data from a specific "Tag" from Lua, this will usually be done via
+                for loops or adjustments of enum values.
+
+                All enums are declared under Core functions and enums, classes that don't fit into other catagories or are utilized
+                in more then 1 or 2 places IE (Random functions, enums, lua read functions) should be placed under the comment
+                dubbed //CORE FUNCTIONS AND ENUMS// as most of if not all of these classes will be utilized in multiple places.
+
+                For simplicity, Ability and Passives fall under the same catagory due to them being handled in a similar way.
+
+                Remember to only ever private fields that have no right being accessed by anything other then the class itself,
+                if not use protected: instead.
+**************************************************************************************************************************************************/
+
+
+
+
 namespace LINUX 
 {
+////////////////////////////////////////////////////////CORE FUNCTIONS AND ENUMS///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////CORE FUNCTIONS AND ENUMS///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////CORE FUNCTIONS AND ENUMS///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////CORE FUNCTIONS AND ENUMS///////////////////////////////////////////////////////////////////////////////////
     // This is a flagged enum
     // Enum is set to only be 16 bit size, FF has all flags open
     // Any new damage types are to be added inside this enum class
@@ -102,7 +130,13 @@ namespace LINUX
         RandomGenerator();
         private:
         std::default_random_engine generator;
+        void SyncRandomizer();                                      // Will be used to sync the randomizer with the server, or perhaps even override it
     };
+
+////////////////////////////////////////////////////////ITEM AND ACTOR HANDLERS////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////ITEM AND ACTOR HANDLERS////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////ITEM AND ACTOR HANDLERS////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////ITEM AND ACTOR HANDLERS////////////////////////////////////////////////////////////////////////////////////
 
     class StatHandler 
     {
@@ -167,6 +201,11 @@ namespace LINUX
         return Stats(placeHolderSlots);
     };
 
+////////////////////////////////////////////////////////ABILITY BASED HANDLERS/////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////ABILITY BASED HANDLERS/////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////ABILITY BASED HANDLERS/////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////ABILITY BASED HANDLERS/////////////////////////////////////////////////////////////////////////////////////
+
     class PassiveHandler
     {
 
@@ -177,6 +216,22 @@ namespace LINUX
 
     class Passive : PassiveHandler
     {
+
+
+
+    };
+
+    class TagHandler
+    {
+
+
+
+
+    };
+
+    class Tag : TagHandler
+    {
+
 
 
 

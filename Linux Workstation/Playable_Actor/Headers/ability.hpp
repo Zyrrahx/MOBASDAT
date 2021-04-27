@@ -14,6 +14,7 @@ namespace LINUX
         void virtual Execute(int index);                                    //Run a single effect in the effect list with the number supplied via index
         void virtual Execute();                                             //Run through the abilityEffects and apply them one by one                  
     protected:
+    //Quality control on duplicate Effects is required here
         std::map<int, EffectHandler> abilityEffects;                        //Each effect that the ability applies, the index is the order in which they occur
     };
 }

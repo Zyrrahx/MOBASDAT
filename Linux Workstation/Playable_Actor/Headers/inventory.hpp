@@ -18,6 +18,10 @@ namespace LINUX {
         void addItemStats(CharacterStats multipleStats[]);                                  //Add an array of stats IE... {PATK, PDEF, AAMP, SPED} from every item
         void addItemStats(int slotNumber, CharacterStats multipleStats[]);                  //Add an array of stats IE... {PDEF, SPED, AAMP} from a single item
         void addItemStats(int slotNumbers[], CharacterStats multipleStats[]);               //Add an array of stats IE... {AAMP, CRTC, PDEF} from an array of items IE... {2,3,5};
+
+        void addItemStats(std::vector<CharacterStats> _stats);                              //Using Vector types as opposed to array types
+        void addItemStats(std::vector<CharacterStats> _stats, std::vector<int> _slots);     //Using Vector types as opposed to array types
+        void addItemStats(std::vector<int> _slots);                                         //Using Vector types as opposed to array types
     };
 
     class Item {

@@ -9,7 +9,9 @@ namespace LINUX
     {
     public:
         int numberOfAbilities;
-        std::map<int, AbilityHandler> Slot;                    //utilize map to avoid duplicates of keys
+        std::vector<AbilityHandler> Slot();
+        AbilityList(int nAbilitySlots);
+        AbilityList(int nAbilitySlots, std::vector<AbilityHandler> _abilityList);
     protected:
     };
 
