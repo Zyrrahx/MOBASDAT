@@ -1,37 +1,37 @@
 --Example of the actor files that will be used for the game, could also be used as a template--
 
 Character = {
-    actorName = "TestActor",
+    actor_name = "Test Actor",
     stats = {
-        physical_Attack = 100,
-        physical_Defense = 50,
-        magic_Resist = 10,
-        ability_Amplificiation = 0,
-        movement_Speed = 280,
-        critical_Chance = 0,
-        critical_Amplificiation = 0,
-        status_Resistance = 0,
-        physical_Armor_Bypass = 0,
-        magical_Armor_Bypass = 0,
+        physical_attack = 100,
+        physical_defense = 50,
+        magic_resist = 10,
+        ability_amplificiation = 0,
+        movement_speed = 280,
+        critical_chance = 0,
+        critical_amplificiation = 0,
+        status_resistance = 0,
+        physical_armor_bypass = 0,
+        magical_armor_bypass = 0,
         HP = 520,
         MP = 240,
     },
-    growthRates = {
-        physical_Attack = 2.2,
-        physical_Defense = 1.8,
-        magic_Resist = 1.0,
-        ability_Amplificiation = 0,
-        movement_Speed = 0,
-        critical_Chance = 0,
-        critical_Amplificiation = 0,
-        status_Resistance = 0,
-        physical_Armor_Bypass = 0,
-        magical_Armor_Bypass = 0,
+    growth_rates = {
+        physical_attack = 2.2,
+        physical_defense = 1.8,
+        magic_resist = 1.0,
+        ability_amplificiation = 0,
+        movement_speed = 0,
+        critical_chance = 0,
+        critical_amplificiation = 0,
+        status_resistance = 0,
+        physical_armor_bypass = 0,
+        magical_armor_bypass = 0,
         HP = 20.8,
         MP = 8.8,
     },
-    abilityList = {
-        abilityOne = {
+    ability_list = {
+        ability_one = {
             name = "Ability One",
             tags = {
                 --Input ability tags here as well as their functions
@@ -42,7 +42,7 @@ Character = {
 
 
         },
-        abilityTwo = {
+        ability_two = {
             name = "Ability Two",
             tags = {
                 --Input ability tags here as well as their functions
@@ -52,7 +52,7 @@ Character = {
             },
 
         },
-        abilityThree = {
+        ability_three = {
             name = "Ability Three",
             tags = {
                 --Input ability tags here as well as their functions
@@ -62,7 +62,7 @@ Character = {
             },
 
         },
-        abilityUltimate = {
+        ability_ultimate = {
             name = "Ability Ultimate",
             tags = {
                 --Input ability tags here as well as their functions
@@ -72,7 +72,7 @@ Character = {
             },
 
         },
-        abilityFive = {
+        ability_five = {
             name = "Ability Five",
             tags = {
                 --Input ability tags here as well as their functions
@@ -82,7 +82,7 @@ Character = {
             },
 
         },
-        abilitySix = {
+        ability_six = {
             name = "Ability Six",
             tags = {
                 --Input ability tags here as well as their functions
@@ -92,7 +92,7 @@ Character = {
             },
 
         },
-        abilitySeven = {
+        ability_seven = {
             name = "Ability Seven",
             tags = {
                 --Input ability tags here as well as their functions
@@ -102,7 +102,7 @@ Character = {
             },
 
         },
-        abilityEight = {
+        ability_eight = {
             name = "Ability Eight",
             tags = {
                 --Input ability tags here as well as their functions
@@ -112,7 +112,7 @@ Character = {
             },
 
         },
-        abilityNine = {
+        ability_nine = {
             name = "Ability Nine",
             tags = {
                 --Input ability tags here as well as their functions

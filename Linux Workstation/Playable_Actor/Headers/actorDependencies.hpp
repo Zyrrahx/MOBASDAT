@@ -15,7 +15,6 @@
 #include "lua.hpp"
 #include "vector2d.hpp"
 #include "vector3d.hpp"
-
 /**************************************************************************************************************************************************
                 This file has been simplified and broken up with large comments for ease of access due to the size of it
                 Please attempt to follow suit with any edits or additions to the file to maintain integrity and ease of access
@@ -35,10 +34,6 @@
                 Remember to only ever private fields that have no right being accessed by anything other then the class itself,
                 if not use protected: instead.
 **************************************************************************************************************************************************/
-
-
-
-
 namespace LINUX 
 {
 ////////////////////////////////////////////////////////CORE FUNCTIONS AND ENUMS///////////////////////////////////////////////////////////////////////////////////
@@ -218,6 +213,16 @@ namespace LINUX
     };
 
     class Passive : PassiveHandler
+    {
+    public:
+
+
+    protected:
+
+
+    };
+    //Designed to be added to items/actors/abilities, basically used in place of a map<tagHandler, std::vector<PassiveHandler>>
+    class PassiveList 
     {
     public:
 

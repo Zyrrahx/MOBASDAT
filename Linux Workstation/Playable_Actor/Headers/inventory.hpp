@@ -28,9 +28,9 @@ namespace LINUX {
     public:
         std::string displayName;
         Stats stats;
-        //std::vector<int, std::string> passiveNames;               <--Concept is correct but a tag system is required {tag class must be created}
+        std::map<TagHandler, std::vector<std::string>> passiveNames;                                //<--Concept is correct but a tag system is required {tag class must be created}
     protected:
-        //std::map<int, Passive> passives;                          <--Concept is correct but a tag system is required {tag class must be created}
+        std::map<TagHandler, std::vector<PassiveHandler>> passives;                                 //<--Concept is correct but a tag system is required {tag class must be created}
     };
 }
     //Acts as the database for buyable items
