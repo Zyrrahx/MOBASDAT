@@ -13,8 +13,8 @@
 #include <map>
 #include <vector>
 #include "lua.hpp"
-#include "vector2d.hpp"
-#include "vector3d.hpp"
+#include "vector2.hpp"
+#include "vector3.hpp"
 /**************************************************************************************************************************************************
                 This file has been simplified and broken up with large comments for ease of access due to the size of it
                 Please attempt to follow suit with any edits or additions to the file to maintain integrity and ease of access

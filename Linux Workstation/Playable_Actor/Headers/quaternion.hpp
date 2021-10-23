@@ -1,16 +1,16 @@
 #ifndef QUATERNION_H
 #define QUATERNION_H
 #include <cmath>
-#include "vector3d.hpp"
+#include "vector3.hpp"
 
 #define PI 3.14159265358979323846
 
 
-class Quaternion 
+class quaternion 
 {
     public:
-        Quaternion();
-        ~Quaternion();
+        quaternion();
+        ~quaternion();
 
         void CreateMatrix(float *pMatrix);
         void CreateFromAxisAngle(   const float &in_x,
@@ -18,8 +18,8 @@ class Quaternion
                                     const float &in_z,
                                     const float &in_degrees);
         
-        LINUX::Vector3d<float> fetchScalarComponent();
-        Quaternion operator *(const Quaternion &q);
+        LINUX::vector3<float> fetchScalarComponent();
+        quaternion operator *(const quaternion &q);
         float x, y, z, w;
 };
 

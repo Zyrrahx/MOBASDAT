@@ -2,18 +2,18 @@
 
 
 
-Quaternion::Quaternion()
+quaternion::quaternion()
             :   x(0.0f), y(0.0f), z(0.0f), w(1.0f)
             {
 
             }
 
-Quaternion::~Quaternion() 
+quaternion::~quaternion() 
 {
 
 }
 
-void Quaternion::CreateFromAxisAngle(   const float &in_x,
+void quaternion::CreateFromAxisAngle(   const float &in_x,
                                         const float &in_y,
                                         const float &in_z,
                                         const float &in_degrees)
@@ -27,7 +27,7 @@ void Quaternion::CreateFromAxisAngle(   const float &in_x,
     z = float(in_z * result);
 }
 
-void Quaternion::CreateMatrix(float *pMatrix)
+void quaternion::CreateMatrix(float *pMatrix)
 {
     if(pMatrix)
     {
@@ -54,18 +54,18 @@ void Quaternion::CreateMatrix(float *pMatrix)
     }
 }
 
-LINUX::Vector3d<float> Quaternion::fetchScalarComponent() 
+LINUX::vector3<float> quaternion::fetchScalarComponent() 
 {
-    LINUX::Vector3d<float> temp;
-    temp.x = Quaternion::x;
-    temp.y = Quaternion::y;
-    temp.z = Quaternion::z;
+    LINUX::vector3<float> temp;
+    temp.x = quaternion::x;
+    temp.y = quaternion::y;
+    temp.z = quaternion::z;
     return temp;
 }
 
-Quaternion Quaternion::operator *(const Quaternion &q) 
+quaternion quaternion::operator *(const quaternion &q) 
 {
-    Quaternion r;
+    quaternion r;
     r.w = w*q.w - x*q.x - y*q.y - z*q.z;
     r.x = w*q.x + x*q.w + y*q.z - z*q.y;
     r.y = w*q.y + y*q.w + z*q.x - x*q.z;
