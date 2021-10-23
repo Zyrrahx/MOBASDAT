@@ -12,7 +12,7 @@ template<class T>
         T y;
 
         vector2(): x(T(0)), y(T(0)) {}
-        vector2(const& T vx, const& T vy): x(vx), x(vy) {}
+        vector2(const& T vx, const& T vy): x(vx), y(vy) {}
 
         vector2& operator+=(const vector2& v) { x += v.x; y += v.y; return *this;}
         vector2& operator-=(const vector2& v) { x -= v.x; y -= v.y; return *this;}

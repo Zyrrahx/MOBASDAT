@@ -14,7 +14,8 @@ template<class T>
         T z;
 
         vector3(): x(T(0)), y(T(0)), z(T(0)) {}
-        vector3(const& T vx, const& T vy, const& T vz): x(vx), x(vy), x(vz) {}
+        vector3(float, float, float);
+        vector3(const& T vx, const& T vy, const& T vz): x(vx), y(vy), z(vz) {}
 
         vector3& operator+=(const vector3& v) { x += v.x; y += v.y; z += v.z; return *this;}
         vector3& operator-=(const vector3& v) { x -= v.x; y -= v.y; z -= v.z; return *this;}
@@ -32,7 +33,11 @@ template<class T>
         vector3 operator-() const { return vector3(-x,-y,-z); }
         vector3& operator*=(const& T s) {x *= s; y *= s; z *= s; return *this;}
         vector3& operator/=(const& T s) {x /= s; y /= s; z /= s; return *this;}
+
     };
+
+template<class T>
+vector3<T>::vector3<T>(float _x, float _y, float _z){x = _x; y = _y; z = _z;}
 
 template<class T> vector3<T> operator+(const vector3<T>& L, const vector3<T>& R) { return vector3<T>(L) += R; }
 template<class T> vector3<T> operator-(const vector3<T>& L, const vector3<T>& R) { return vector3<T>(L) -= R; }

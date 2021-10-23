@@ -32,6 +32,8 @@ class PhysicsWorld
 {
 private:
 std::vector<PhysicsObject3d*> mObjects;
+vector3<float> mGravity = (0.0f,-9.81f,0.0f);
+vector3<float> mOva = vector3<float>(0.0f,0.0f,0.0f);
 
 public:
     void AddObject(PhysicsObject3d* object) 
@@ -46,6 +48,22 @@ public:
         if(itr == mObjects.end()) return;
         mObjects.erase(itr);
     }
+
+    void Step(float dt) 
+    {
+        for(PhysicsObject3d* obj : mObjects) 
+        {
+            obj->Force += obj->Mass * mGravity;
+            obj->Velocity += obj->Force / obj->Mass * dt;
+            obj->Position += obj->Velocity * dt;
+            
+            obj->Force = vector3<float>(0.0f,0.0f,0.0f);
+        }
+
+
+
+    }
+
 };
 
 
