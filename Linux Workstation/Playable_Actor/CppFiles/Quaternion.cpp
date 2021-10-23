@@ -1,5 +1,7 @@
 #include "quaternion.hpp"
 
+
+
 Quaternion::Quaternion()
             :   x(0.0f), y(0.0f), z(0.0f), w(1.0f)
             {
@@ -50,6 +52,15 @@ void Quaternion::CreateMatrix(float *pMatrix)
         pMatrix[14] = 0;
         pMatrix[15] = 1.0f;
     }
+}
+
+LINUX::Vector3d<float> Quaternion::fetchScalarComponent() 
+{
+    LINUX::Vector3d<float> temp;
+    temp.x = Quaternion::x;
+    temp.y = Quaternion::y;
+    temp.z = Quaternion::z;
+    return temp;
 }
 
 Quaternion Quaternion::operator *(const Quaternion &q) 

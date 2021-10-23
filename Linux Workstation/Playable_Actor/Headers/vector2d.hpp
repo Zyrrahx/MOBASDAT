@@ -42,7 +42,7 @@ template<class T> Vector2d<T> operator*(const Vector2d<T>& v, const T& s) { retu
 template<class T> Vector2d<T> operator/(const T& s, const Vector2d<T>& v) { return Vector2d<T>(v) /= s; }
 template<class T> Vector2d<T> operator/(const Vector2d<T>& v, const T& s) { return Vector2d<T>(v) /= s; }
 
-template<class T> T DotProduct(const Vector2d<T>&, const Vector2d<T>&);
+template<class T> T DotProduct(const Vector2d<T>& s, const Vector2d<T>& v) { return s.x * v.x + s.y * v.y};
 template<class T> T CrossProduct(const Vector2d<T>&, const Vector2d<T>&);
 template<class T> T EuclideanNorm(const Vector2d<T>&);
 

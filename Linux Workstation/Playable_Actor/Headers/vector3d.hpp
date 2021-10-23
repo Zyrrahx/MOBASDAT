@@ -2,6 +2,7 @@
 #define VECTOR3D_HPP
 #include <cfloat>
 #include <climits>
+#include "quaternion.hpp"
 
 namespace LINUX {
 
@@ -21,7 +22,7 @@ template<class T>
         Vector3d& operator/=(const Vector3d& v) { x /= v.x; y /= v.y; z /= v.z; return *this;}
         
         friend bool operator ==(const Vector3d& L, const Vector3d& R)   { return std::tie(L.x, L.y, L.z) == std::tie(R.x, R.y, R.z);}
-        friend bool operator !=(const Vecotr3d& L, const Vector3d& R)   { return !(L == R);}
+        friend bool operator !=(const Vector3d& L, const Vector3d& R)   { return !(L == R);}
 
         friend bool operator<(const Vector3d& L, const Vector3d& R)     { return std::tie(L.x, L.y, L.z) < std::tie(R.x, R.y, R.z);}
         friend bool operator<=(const Vector3d& L, const Vector3d& R)    { return !(R < L); }
@@ -31,21 +32,6 @@ template<class T>
         Vector3d operator-() const { return Vector3d(-x,-y,-z); }
         Vector3d& operator*=(const& T s) {x *= s; y *= s; z *= s; return *this;}
         Vector3d& operator/=(const& T s) {x /= s; y /= s; z /= s; return *this;}
-
-        //Rotate vector by quaternion
-        Vector3d operator*(const Quaternion& q, const Vector3d& v)
-        {
-            Vector3d u(q.x, q.y, q.z);
-            Vector3d temp;
-
-            float scalar = q.w; 
-
-            temp =  2.0f * DotProduct(u,v) * u +
-                    (scalar*scalar - DotProduct(u,u)) * v +
-                    2.0f * scalar * CrossProduct(u,v);
-
-        }
-
     };
 
 template<class T> Vector3d<T> operator+(const Vector3d<T>& L, const Vector3d<T>& R) { return Vector3d<T>(L) += R; }
@@ -58,7 +44,19 @@ template<class T> Vector3d<T> operator*(const Vector3d<T>& v, const T& s) { retu
 template<class T> Vector3d<T> operator/(const T& s, const Vector3d<T>& v) { return Vector3d<T>(v) /= s; }
 template<class T> Vector3d<T> operator/(const Vector3d<T>& v, const T& s) { return Vector3d<T>(v) /= s; }
 
+template<class T> Vector3d<T> operator*(const Quaternion& q, const Vector3d<T>& v)                                  //Rotate vector by quaternion
+{
+    Vector3d<float> u = q.fetchScalarComponent();
+    Vector3d<T> temp;                                       //Temporary Vector3d<T> to return
+    float scalar = q.w;                                     //Scalar
+    temp =  2.0f * DotProduct(u,v) * u +            
+            (scalar*scalar - DotProduct(u,u)) * v +
+            2.0f * scalar * CrossProduct(u,v);
+    return temp;
+}
+
 template<class T> T DotProduct(const Vector3d<T>& s, const Vector3d<T>& v) { return s.x * v.x + s.y * v.y + s.z * v.z; };
+
 template<class T> T CrossProduct(const Vector3d<T>& s, const Vector3d<T>& v) 
 {   
     Vector3d<T> temp;

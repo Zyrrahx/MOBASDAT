@@ -41,7 +41,7 @@ namespace LINUX
 ////////////////////////////////////////////////////////CORE FUNCTIONS AND ENUMS///////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////CORE FUNCTIONS AND ENUMS///////////////////////////////////////////////////////////////////////////////////
     // This is a flagged enum
-    // Enum is set to only be 16 bit size, FF has all flags open
+    // Enum is set to only be 16 bit size, FFFF has all flags open
     // Any new damage types are to be added inside this enum class
     // If required the size of the enum can be changed
     enum class DamageType : unsigned short{
@@ -59,7 +59,7 @@ namespace LINUX
     std::map<CharacterStats, std::string> damageTypeMap;
 
     // This is a flagged enum
-    // Enum is set to only be 16 bit size, FF has all flags open
+    // Enum is set to only be 16 bit size, FFFF has all flags open
     // Any new stats for units are to be added inside this enum class
     // If required the size of the enum can be changed
     enum class CharacterStats : unsigned short
@@ -82,7 +82,7 @@ namespace LINUX
     };
     std::map<CharacterStats, std::string> characterStatsMap;
     // This is a flagged enum
-    // Enum is set to only be 32 bit size, FFFF has all flags open
+    // Enum is set to only be 32 bit size, FFFFFFFF has all flags open
     // Any new Status types are to be added inside this enum class
     // If required the size of the enum can be changed
     enum class StatusType : unsigned int
