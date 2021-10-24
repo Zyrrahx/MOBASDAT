@@ -1,6 +1,6 @@
 #include "quaternion.hpp"
 
-
+namespace LINUX {
 
 quaternion::quaternion()
             :   x(0.0f), y(0.0f), z(0.0f), w(1.0f)
@@ -54,13 +54,9 @@ void quaternion::CreateMatrix(float *pMatrix)
     }
 }
 
-LINUX::vector3<float> quaternion::fetchScalarComponent() 
+vector3 quaternion::fetchScalarComponent() 
 {
-    LINUX::vector3<float> temp;
-    temp.x = quaternion::x;
-    temp.y = quaternion::y;
-    temp.z = quaternion::z;
-    return temp;
+    return vector3(quaternion::x, quaternion::y, quaternion::z);
 }
 
 quaternion quaternion::operator *(const quaternion &q) 
@@ -72,4 +68,6 @@ quaternion quaternion::operator *(const quaternion &q)
     r.z = w*q.z + z*q.w + x*q.y - y*q.x;
 
     return r;
+}
+
 }

@@ -10,19 +10,9 @@ namespace LINUX {
 
 struct PhysicsObject3d 
 {
-    vector3<float> Position;
-    vector3<float> Velocity;
-    vector3<float> Force;
-
-    float Mass;
-
-};
-
-struct PhysicsObject2d
-{
-    vector2<float> Position;
-    vector2<float> Velocity;
-    vector2<float> Force;
+    typeVec3<float> Position;
+    typeVec3<float> Velocity;
+    typeVec3<float> Force;
 
     float Mass;
 
@@ -32,8 +22,7 @@ class PhysicsWorld
 {
 private:
 std::vector<PhysicsObject3d*> mObjects;
-vector3<float> mGravity = (0.0f,-9.81f,0.0f);
-vector3<float> mOva = vector3<float>(0.0f,0.0f,0.0f);
+vector3 mGravity = vector3(0.0f,-9.81f,0.0f);
 
 public:
     void AddObject(PhysicsObject3d* object) 
@@ -57,11 +46,8 @@ public:
             obj->Velocity += obj->Force / obj->Mass * dt;
             obj->Position += obj->Velocity * dt;
             
-            obj->Force = vector3<float>(0.0f,0.0f,0.0f);
+            obj->Force = vector3(0.0f,0.0f,0.0f);
         }
-
-
-
     }
 
 };

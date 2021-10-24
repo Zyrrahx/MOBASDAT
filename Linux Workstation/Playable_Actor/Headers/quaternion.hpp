@@ -5,6 +5,7 @@
 
 #define PI 3.14159265358979323846
 
+namespace LINUX {
 
 class quaternion 
 {
@@ -18,9 +19,11 @@ class quaternion
                                     const float &in_z,
                                     const float &in_degrees);
         
-        LINUX::vector3<float> fetchScalarComponent();
+        vector3 fetchScalarComponent();
         quaternion operator *(const quaternion &q);
         float x, y, z, w;
 };
+
+}
 
 #endif
